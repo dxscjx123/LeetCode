@@ -4,6 +4,9 @@
 // 这里主要需要考虑两个边界条件，链表元素只有2个和链表元素为偶数个的情况。
 // 由于采用了栈，则空间复杂度不为O(1)。
 
+// 对于采用O(1)复杂度的方法，首先通过快慢指针找到中间结点，然后对链表后半段进行反
+// 转，然后将反转的后半段与前半段比较。
+
 //Given a singly linked list, determine if it is a palindrome.
 /**
  * Definition for singly-linked list.
