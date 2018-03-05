@@ -47,3 +47,53 @@ public:
 		return mergesort(l1, l2);
     }
 };
+
+//快速排序
+// 由于快速排序需要从尾节点向前遍历，但单链表不能够直接找到尾节点。故对Partition
+// 需要进行改进。改进方法为。声明两个节点p，q分别指向头结点和下一节点，保证p之前的
+// 节点都小于flag，p与q之间的节点都大于等于flag，当q指向尾节点是，p指向当前一次
+// 排序需要交换的节点。
+
+/*
+class Solution {
+public:
+    ListNode *Partition(ListNode *head, ListNode *tail)
+    {
+        ListNode *p = head;
+        ListNode *q = head->next;
+        int flag = p->val;
+        while (q != tail)
+        {
+            if (q->val < flag)
+            {
+                p = p->next;
+
+                int temp = q->val;
+                q->val = p->val;
+                p->val = temp;
+
+            }
+            q = q->next;
+        }
+        head->val = p->val;
+        p->val = flag;
+        return p;
+    }
+
+    void quicksort(ListNode *head, ListNode *tail)
+    {
+        if (head == tail)
+            return ;
+        ListNode *index = Partition(head, tail);
+        quicksort(head, index);
+        quicksort(index->next, tail);
+    }
+
+    ListNode* sortList(ListNode* head) {
+        if (!head)
+            return nullptr;
+        quicksort(head, nullptr);
+        return head;
+    }
+};
+*/
