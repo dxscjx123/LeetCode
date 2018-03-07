@@ -30,14 +30,8 @@ public:
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
 		if (image.empty())
 			return image;
-			
-        visit.resize(image.size());
-        for (int i = 0; i < 10; i++)
-            visit[i].resize(image[0].size());
-
-        for(int i = 0; i < image.size(); ++i)
-			for (int j = 0; j < image[0].size(); ++j)
-				visit[i][j] = 0;
+		
+		visit.resize(image.size(), vector<int>(image[0].size(), 0));
 
 		original = image[sr][sc];
 		dfs(image, sr, sc, newColor, original);
@@ -103,13 +97,7 @@ public:
 		if (image.empty())
 			return image;
 
-        visit.resize(image.size());
-        for (int i = 0; i < 10; i++)
-            visit[i].resize(image[0].size());
-
-        for(int i = 0; i < image.size(); ++i)
-			for (int j = 0; j < image[0].size(); ++j)
-				visit[i][j] = 0;
+		visit.resize(image.size(), vector<int>(image[0].size(), 0));
 
 		original = image[sr][sc];
 		vector<int> head = {sr, sc};
